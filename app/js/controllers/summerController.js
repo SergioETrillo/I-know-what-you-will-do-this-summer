@@ -1,23 +1,30 @@
-angular.module("summerApp").controller("summerController", ["$env", "$http", "$route", function($env, $http, $route) {
+angular.module("summerApp").controller("summerController", ["$env", "$http", function($env, $http) {
   var self = this;
 
-  self.buildQuery = function(){
-    params.oauth_timestamp = new Date().getTime();
-    console.log("params timestamp",params.oauth_timestamp);
-    params.location = self.location;
-    params.cc = self.cc;
-    console.log("country is:",params.cc);
-    params.term = self.term;
-    var signature = oauthSignature.generate(method, url, params, consumerSecret, tokenSecret);
-    params.oauth_signature = signature;
-    console.log(params);
-    $http.jsonp(url, {params: params}, {cache: false}).success(function(response){
+  self.update = function(){
+    self.reset();
+    self.params['callback'] = 'angular.callbacks._0';
+    self.params['location'] = self.location;
+    self.params['term'] = self.term;
+    self.params['oauth_nonce'] = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    self.params['oauth_timestamp'] = new Date().getTime();
+    var signature = oauthSignature.generate(method, url, self.params, consumerSecret, tokenSecret);
+    self.params['oauth_signature'] = signature;
+    //console.log(self.params);
+  }
 
-      self.results = response.businesses;
-      console.log(self.results);
+  self.buildQuery = function(){
+    // params['callback'] = 'angular.callbacks._' + i++;
+   //  params['location'] = self.location;
+   //  params['term'] = self.term;
+   //  params['oauth_nonce'] = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+   //  params['oauth_timestamp'] = new Date().getTime();
+   //  params['oauth_signature'] = self.signature;
+    $http.jsonp(url, {params: self.params}).then(function(response){
+      self.result = response.data.businesses;
+      console.log(self.result);
     });
-    // self.reloadRoute();
-  };
+  }
 
   function randomString(length, chars) {
     var result = '';
@@ -26,25 +33,25 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "$r
   }
 
   var method = 'GET';
-  var url = 'http://api.yelp.com/v2/search';
+  var url = 'http://api.yelp.com/v2/search?callback=JSON_CALLBACK';
 
-  var params = {
-    callback: 'angular.callbacks._0',
-    location: "",
-    cc: "",
-    oauth_consumer_key: $env.oauth_consumer_key,
-    oauth_nonce: "",
-    oauth_signature_method: "HMAC-SHA1",
-    oauth_timestamp: new Date().getTime(),
-    oauth_token: $env.oauth_token,
-    oauth_version: "1.0",
-    term: ""
-  };
+  self.reset = function(){
+    self.result = null;
+    self.params = null;
+    self.params = {
+      callback: "",
+      location: "",
+      oauth_consumer_key: $env.oauth_consumer_key,
+      oauth_nonce: "",
+      oauth_signature_method: "HMAC-SHA1",
+      oauth_timestamp: "",
+      oauth_token: $env.oauth_token,
+      oauth_version: "1.0",
+      term: ""
+    };
+  }
+
 
   var consumerSecret = $env.consumerSecret;
   var tokenSecret = $env.tokenSecret;
-
-  self.reloadRoute = function() {
-   $route.reload();
-  };
 }]);
