@@ -3,15 +3,15 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", fun
 
   self.update = function(){
     self.reset();
-    self.params['callback'] = 'angular.callbacks._0';
-    self.params['location'] = self.location;
-    self.params['term'] = self.term;
-    self.params['oauth_nonce'] = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-    self.params['oauth_timestamp'] = new Date().getTime();
+    self.params.callback = 'angular.callbacks._0';
+    self.params.location = self.location;
+    self.params.term = self.term;
+    self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
+    self.params.oauth_timestamp = new Date().getTime();
     var signature = oauthSignature.generate(method, url, self.params, consumerSecret, tokenSecret);
-    self.params['oauth_signature'] = signature;
+    self.params.oauth_signature = signature;
     //console.log(self.params);
-  }
+  };
 
   self.buildQuery = function(){
     // params['callback'] = 'angular.callbacks._' + i++;
@@ -24,7 +24,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", fun
       self.result = response.data.businesses;
       console.log(self.result);
     });
-  }
+  };
 
   function randomString(length, chars) {
     var result = '';

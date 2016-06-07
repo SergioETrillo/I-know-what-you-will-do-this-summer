@@ -9,7 +9,9 @@
     <script src="/bower_components/oauth-signature/dist/oauth-signature.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/summerController.js"></script>
+    <script src="js/controllers/InputDropDownController.js"></script>
     <title>I know what you'll do this summer</title>
+
   </head>
 
   <body>
@@ -19,6 +21,18 @@
       <input ng-change="controller.update()" type="text" ng-model="controller.location">
       Find:
       <input ng-change="controller.update()" type="text" ng-model="controller.term">
+
+    <div ng-controller="InputDropdownController">
+  <form name="myForm">
+    <label for="repeatSelect"> Country: </label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  </form>
+  <hr>
+  <tt>repeatSelect = {{data.repeatSelect}}</tt><br/>
+</div>
+
       <input type="button" ng-click="controller.buildQuery()" value="Search">
       </form>
       <p>{{controller.location}}</p>
