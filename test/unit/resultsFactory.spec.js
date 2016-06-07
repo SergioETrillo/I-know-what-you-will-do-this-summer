@@ -8,7 +8,7 @@
     result = new resultsFactory('location');
   }));
 
-  it('is incomplete by default', function(){
+  it('location is available', function(){
     expect(result.location).toEqual('location');
   });
 });
