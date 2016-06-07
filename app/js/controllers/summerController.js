@@ -1,6 +1,7 @@
 angular.module("summerApp")
-  .controller("summerController", [function() {
+  .controller("summerController", ["$env", function($env) {
     var self = this;
 
     self.greeting = "Hello, summers";
   }]);
+

@@ -1,13 +1,9 @@
-describe("NewsSummaryController", function() {
+describe("summerController", function() {
   var controller;
 
-  beforeEach(module("newsSummaryApp"));
+  beforeEach(module("summerApp"));
 
   beforeEach(inject(function($controller) {
-    controller = $controller("NewsSummaryController");
+    controller = $controller("summerController");
   }));
-
-  it("makes exposes a greeting of 'Hello, world'", function() {
-    expect(controller.greeting).toEqual("Hello, world");
-  });
 });
