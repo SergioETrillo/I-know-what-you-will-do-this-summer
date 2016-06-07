@@ -13,15 +13,16 @@
   </head>
 
   <body>
-   <div ng-controller="summerController as controller">
-     <form ng-submit="controller.buildQuery()">
-     Location:
-     <input type="text" ng-model="controller.location">
-
-     <input type="submit">
-     </form>
-     <p>{{controller.location}}</p>
-   </div>
+    <div ng-controller="summerController as controller">
+      <form ng-submit="controller.buildQuery()">
+      Location:
+      <input type="text" ng-model="controller.location">
+      Find:
+      <input type="text" ng-model="controller.term">
+      <input type="submit">
+      </form>
+      <p>{{controller.location}}</p>
+    </div>
   </body>
 
 
