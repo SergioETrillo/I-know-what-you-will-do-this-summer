@@ -1,10 +1,11 @@
-angular.module("summerApp").controller("summerController", ["$env", "$http", function($env, $http) {
+angular.module("summerApp").controller("summerController", ["$env", "$http", "$scope", "sharedDataService", function($env, $http, $scope, sharedDataService) {
   var self = this;
-
+  $scope.Dropdown = sharedDataService;
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
+    self.params.cc = Dropdown.country;
     self.params.term = self.term;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();
@@ -14,12 +15,6 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", fun
   };
 
   self.buildQuery = function(){
-    // params['callback'] = 'angular.callbacks._' + i++;
-   //  params['location'] = self.location;
-   //  params['term'] = self.term;
-   //  params['oauth_nonce'] = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
-   //  params['oauth_timestamp'] = new Date().getTime();
-   //  params['oauth_signature'] = self.signature;
     $http.jsonp(url, {params: self.params}).then(function(response){
       self.result = response.data.businesses;
       console.log(self.result);
@@ -41,6 +36,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", fun
     self.params = {
       callback: "",
       location: "",
+      cc: "",
       oauth_consumer_key: $env.oauth_consumer_key,
       oauth_nonce: "",
       oauth_signature_method: "HMAC-SHA1",

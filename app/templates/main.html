@@ -7,13 +7,13 @@
 
     <div ng-controller="InputDropdownController">
   <form name="myForm">
-    <label for="repeatSelect"> Country: </label>
-    <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+    <label for="country"> Country: </label>
+    <select name="country" id="country" ng-model="Dropdown.country">
       <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
     </select>
   </form>
   <hr>
-  <tt>repeatSelect = {{data.repeatSelect}}</tt><br/>
+  <tt>country = {{Dropdown.country}}</tt><br/>
 </div>
 
       <input type="button" ng-click="controller.buildQuery()" value="Search">
