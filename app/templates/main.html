@@ -1,13 +1,22 @@
-    <div ng-controller="summerController as controller">
-      <form ng-submit="controller.buildQuery()">
+     <div ng-controller="summerController as controller">
+      <form>
       Location:
-      <input type="text" ng-model="controller.location">
+      <input ng-change="controller.update()" type="text" ng-model="controller.location">
       Find:
-      <input type="text" ng-model="controller.term">
-      Country:
-      <input type="text" ng-model="controller.cc">
+      <input ng-change="controller.update()" type="text" ng-model="controller.term">
 
-      <input type="submit">
+    <div ng-controller="InputDropdownController">
+  <form name="myForm">
+    <label for="repeatSelect"> Country: </label>
+    <select name="repeatSelect" id="repeatSelect" ng-model="data.repeatSelect">
+      <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+    </select>
+  </form>
+  <hr>
+  <tt>repeatSelect = {{data.repeatSelect}}</tt><br/>
+</div>
+
+      <input type="button" ng-click="controller.buildQuery()" value="Search">
       </form>
       <p>{{controller.location}}</p>
     </div>
