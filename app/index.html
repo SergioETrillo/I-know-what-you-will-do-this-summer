@@ -1,16 +1,18 @@
 <!doctype html>
 
-<html lang="en" ng-app="newsSummaryApp">
+<html lang="en" ng-app="summerApp">
   <head>
     <meta charset="utf-8">
     <script src="bower_components/angular/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
+    <script src="env.js"></script>
     <script src="js/app.js"></script>
-    <script src="js/controllers.js"></script>
-    <title>News Summary</title>
+    <script src="js/controllers/summerController.js"></script>
+    <title>I know what you'll do this summer</title>
   </head>
 
   <body>
-    <div ng-controller="NewsSummaryController as controller">
+    <div ng-controller="summerController as controller">
       <p>{{controller.greeting}}</p>
     </div>
   </body>
