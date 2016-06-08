@@ -1,63 +1,63 @@
-    /* Remove the navbar's default rounded borders and increase the bottom margin */
-    .navbar {
-      margin-bottom: 50px;
-      border-radius: 0;
-    }
+/* Remove the navbar's default rounded borders and increase the bottom margin */
+.navbar {
+  margin-bottom: 50px;
+  border-radius: 0;
+}
 
-    /* Remove the jumbotron's default bottom margin */
-     .jumbotron {
-      margin-bottom: 0;
-    }
+/* Remove the jumbotron's default bottom margin */
+.jumbotron {
+  margin-bottom: 0;
+}
 
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
+/* Add a gray background color and some padding to the footer */
+footer {
+  background-color: #f2f2f2;
+  padding: 25px;
+}
 
-    #partnership {
-      font-size: 10px;
-      font-style: italic;
-    }
+#partnership {
+  font-size: 10px;
+  font-style: italic;
+}
 
-    .myform {
-      margin-top: 20px;
-      margin-bottom: 20px;
-/*      margin-right: 10%;
-      margin-left: 10%;*/
-      text-align: center;
-    }
+.myform {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+}
 
-    #categories {
-      width: 60%;
-    }
+#categories {
+  width: 60%;
+}
 
-    .formula1 {
-      width: 60%;
-      text-align: center;
-    }
+.formula1 {
+  width: 70%;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
 
+#location {
+  width: 150px;
+}
 
-    #location {
-      width: 150px;
-    }
+.suggestions {
+  float: left;
+  width: 25%;
+  height: 300px;
+  margin: 1em;
+}
 
+.after-box {
+  clear: left;
+}
 
-    .suggestions {
-      float: left;
-      width: 33%;
-      height: 300px;
-      margin: 3em;
-      margin-bottom: 10px;
-
-    }
-
-
-    .after-box {
-      clear: left;
-    }
-
-    .results {
-      background-color: orange;
-      width: 100%;
-    }
+.results {
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
