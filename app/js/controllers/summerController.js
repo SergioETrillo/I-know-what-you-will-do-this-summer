@@ -54,4 +54,8 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       return result;
   }
 
+  self.doSort = function() {
+    self.result = self.result.reverse();
+  }
+
 }]);

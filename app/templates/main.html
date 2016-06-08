@@ -32,8 +32,11 @@
 
       <hr>
 
-      <div id=results ng-show="controller.result">
+      <div id="results" ng-show="controller.result">
         <label>Filter Results: <input ng-model="searchText"></label>
+
+        <button ng-click="controller.doSort()">Reverse</button>
+
         <p ng-repeat="data in controller.result | filter:searchText">
           {{data.name}}
           <img src="{{data.rating_img_url}}"><br>
