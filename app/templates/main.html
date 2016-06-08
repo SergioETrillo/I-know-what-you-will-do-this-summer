@@ -10,18 +10,18 @@
 
         <div ng-controller="CategoriesDropdownController as dropdown_categories">
           <label for="categories"> Categories: </label>
-          <select name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options">
+          <select name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple>
           </select>
         </div>
 
         Location:
-        <input ng-change="controller.update()" type="text" ng-model="controller.location">
+        <input ng-change="controller.update()" type="text" ng-model="controller.location"required>
         Find:
-        <input ng-change="controller.update()" type="text" ng-model="controller.term">
-        in a Radius of (meters):
-        <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
+        <input ng-change="controller.update()" type="text" ng-model="controller.term" required>
+        in a Radius of (Km):
+        <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter" required>
 
-        <input type="button" ng-click="controller.buildQuery()" value="Search">
+        <input type="submit" ng-click="controller.buildQuery()" value="Search">
       </form>
       <p>{{controller.location}}</p>
     </div>

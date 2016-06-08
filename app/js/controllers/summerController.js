@@ -9,9 +9,10 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
-    self.params.radius_filter = self.radius_filter;
+    self.params.radius_filter = self.radius_filter * 1000;
     self.params.cc = self.Dropdown.selected_country;
-    self.params.category_filter = self.Dropdown.selected_categories;
+    self.params.category_filter = self.Dropdown.selected_categories.join(",");
+    // console.log(self.Dropdown.selected_categories.join(","));
     self.params.term = self.term;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();
@@ -34,7 +35,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       category_filter: "",
       location: "",
       cc: "",
-      radius_filter: "",
+      radius_filter: "5000",
       oauth_consumer_key: $env.oauth_consumer_key,
       oauth_nonce: "",
       oauth_signature_method: "HMAC-SHA1",
