@@ -24,7 +24,7 @@
             <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" required>
           </div>
           <div class="col-sm-4">
-            <label for="radius">Area (Km):</label>
+            <label for="radius">in a Radius of (Km):</label>
             <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
           </div>
         </div>
@@ -52,32 +52,28 @@
         <br>
         <input class="btn btn-primary" type="submit" ng-click="controller.buildQuery()" value="Search">
       </form>
-      <hr>
     </div>
-    
     <!-- RESULTS -->
-    
-    <div class="results text-center">
+    <div class="results">
       <div ng-show="controller.result">
         <label>Filter Results: <input ng-model="searchText"></label>
+        <hr>
+        <box ng-repeat="data in controller.result | filter:searchText" class="suggestions">
+          <div class="panel panel-default center-block">
+            <div class="panel-heading">
+              <p>{{data.name}}</p>
+            </div>
+            <div class="panel-body">
+              <img src="{{data.rating_img_url}}"><br>
+              <a href="{{data.url}}" target="_blank">Yelp info</a><br>
+              {{data.phone}}<br>
+              {{data.snippet_text}}<br>
+              <img src="{{data.image_url}}"><br>
+            </div>
+          </div>
+        </box>
       </div>
-      <hr>
-      <box ng-repeat="data in controller.result | filter:searchText" class="suggestions">
-        <div class="panel panel-default center-block">
-          <div class="panel-heading">
-            <p>{{data.name}}</p>
-          </div>
-          <div class="panel-body">
-            <img src="{{data.rating_img_url}}"><br>
-            <a href="{{data.url}}" target="_blank">Yelp info</a><br>
-            {{data.phone}}<br>
-            {{data.snippet_text}}<br>
-            <img src="{{data.image_url}}"><br>
-          </div>
-        </div>
-      </box>
     </div>
-
   </div>
 </div>
 

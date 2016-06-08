@@ -7,6 +7,7 @@
 /* Remove the jumbotron's default bottom margin */
 .jumbotron {
   margin-bottom: 0;
+  background-image: url('../images/HOlidays.jpg')
 }
 
 /* Add a gray background color and some padding to the footer */
@@ -57,7 +58,8 @@ footer {
 .results {
   width: 100%;
   text-align: center;
-  display: block;
-  margin-left: auto;
+  display: flex;
+  align-items: center;
+  margin-left: 10%;
   margin-right: auto;
 }
