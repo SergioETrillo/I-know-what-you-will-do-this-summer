@@ -1,7 +1,6 @@
 angular.module("summerApp").controller("summerController", ["$env", "$http", "SharedDataService", function($env, $http, $SharedDataService) {
   var self = this;
 
-
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
