@@ -1,12 +1,11 @@
 angular.module("summerApp").controller("summerController", ["$env", "$http", "SharedDataService", function($env, $http, $SharedDataService) {
   var self = this;
 
-
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
-    // self.params.radius_filer = self.radius_filter;
+    self.params.radius_filter = self.radius_filter;
     self.Dropdown = $SharedDataService;
     console.log(self.Dropdown.country);
     self.params.cc = self.Dropdown.country;
@@ -41,7 +40,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       callback: "",
       location: "",
       cc: "",
-      radius_filer: "",
+      radius_filter: "",
       oauth_consumer_key: $env.oauth_consumer_key,
       oauth_nonce: "",
       oauth_signature_method: "HMAC-SHA1",

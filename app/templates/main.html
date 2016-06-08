@@ -1,24 +1,28 @@
      <div ng-controller="summerController as controller">
 
-      <div ng-controller="InputDropdownController as dropdown_cc">
       <form name="myForm">
-        <label for="country"> Country: </label>
-        <select name="country" id="country" ng-model="dropdown_cc.Dropdown.country" ng-change="controller.update()">
-          <option ng-repeat="option in dropdown_cc.data.availableOptions" value="{{option.id}}">{{option.name}}</option>
-        </select>
-      </form>
-      <hr>
-      <tt>country = {{Dropdown.country}}</tt><br/>
-    </div>
-      <form>
-      Location:
-      <input ng-change="controller.update()" type="text" ng-model="controller.location">
-      Find:
-      <input ng-change="controller.update()" type="text" ng-model="controller.term">
-<!--       in a Radius of (meters):
-      <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter"> -->
 
-      <input type="button" ng-click="controller.buildQuery()" value="Search">
+        <div ng-controller="CountryDropdownController as dropdown_cc">
+          <label for="country"> Country: </label>
+          <select name="dropdown_cc.Dropdown.country_options" id="country" ng-model="dropdown_cc.Dropdown.selected_country" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_cc.Dropdown.country_options">
+          </select>
+        </div>
+
+        <div ng-controller="CategoriesDropdownController as dropdown_categories">
+          <label for="categories"> Categories: </label>
+          <select name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options">
+          </select>
+        </div>
+
+        Location:
+        <input ng-change="controller.update()" type="text" ng-model="controller.location">
+        Find:
+        <input ng-change="controller.update()" type="text" ng-model="controller.term">
+        in a Radius of (meters):
+        <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
+
+        <input type="button" ng-click="controller.buildQuery()" value="Search">
       </form>
       <p>{{controller.location}}</p>
     </div>
+

@@ -1,10 +1,9 @@
-summerApp.controller('InputDropdownController', ['$scope', 'SharedDataService',
-  function($scope, $SharedDataService) {
+summerApp.controller('CountryDropdownController', ['SharedDataService',
+  function($SharedDataService) {
   var self = this;
   self.Dropdown = $SharedDataService;
-  self.data = {
-    country: null,
-    availableOptions: [
+  self.Dropdown.select_country = null;
+  self.Dropdown.country_options = [
     {id: 'AR', name: 'Argentina'},
     {id: 'AU', name: 'Australia'},
     {id: 'AT', name: 'Austria'},
@@ -37,6 +36,11 @@ summerApp.controller('InputDropdownController', ['$scope', 'SharedDataService',
     {id: 'TR', name: 'Turkey'},
     {id: 'GB', name: 'United Kingdom'},
     {id: 'US', name: 'United States'}
-  ],
- };
+  ];
 }]);
+
+
+
+
+
+
