@@ -1,4 +1,4 @@
-angular.module("summerApp").controller("summerController", ["$env", "$http", "$scope", "SharedDataService", function($env, $http, $scope, $SharedDataService) {
+angular.module("summerApp").controller("summerController", ["$env", "$http", "SharedDataService", function($env, $http, $SharedDataService) {
   var self = this;
 
 
@@ -6,9 +6,10 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "$s
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
-    $scope.Dropdown = $SharedDataService;
-    console.log($scope.Dropdown.country);
-    self.params.cc = $scope.Dropdown.country;
+    // self.params.radius_filer = self.radius_filter;
+    self.Dropdown = $SharedDataService;
+    console.log(self.Dropdown.country);
+    self.params.cc = self.Dropdown.country;
     self.params.term = self.term;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();
@@ -40,6 +41,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "$s
       callback: "",
       location: "",
       cc: "",
+      radius_filer: "",
       oauth_consumer_key: $env.oauth_consumer_key,
       oauth_nonce: "",
       oauth_signature_method: "HMAC-SHA1",
@@ -48,7 +50,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "$s
       oauth_version: "1.0",
       term: ""
     };
-  }
+  };
 
 
   var consumerSecret = $env.consumerSecret;

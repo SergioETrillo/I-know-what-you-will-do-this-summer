@@ -1,6 +1,7 @@
 summerApp.service('SharedDataService', function () {
      var Dropdown = {
-        country: ''
+        country: '',
+        sort: ''
     };
     return Dropdown;
 });

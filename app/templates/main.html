@@ -1,10 +1,10 @@
      <div ng-controller="summerController as controller">
 
-      <div ng-controller="InputDropdownController">
+      <div ng-controller="InputDropdownController as dropdown_cc">
       <form name="myForm">
         <label for="country"> Country: </label>
-        <select name="country" id="country" ng-model="Dropdown.country">
-          <option ng-repeat="option in data.availableOptions" value="{{option.id}}">{{option.name}}</option>
+        <select name="country" id="country" ng-model="dropdown_cc.Dropdown.country" ng-change="controller.update()">
+          <option ng-repeat="option in dropdown_cc.data.availableOptions" value="{{option.id}}">{{option.name}}</option>
         </select>
       </form>
       <hr>
@@ -15,6 +15,8 @@
       <input ng-change="controller.update()" type="text" ng-model="controller.location">
       Find:
       <input ng-change="controller.update()" type="text" ng-model="controller.term">
+<!--       in a Radius of (meters):
+      <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter"> -->
 
       <input type="button" ng-click="controller.buildQuery()" value="Search">
       </form>
