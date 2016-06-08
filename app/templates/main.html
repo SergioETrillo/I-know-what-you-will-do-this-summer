@@ -21,11 +21,17 @@
         in a Radius of (Km):
         <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
 
+        <span ng-controller="SortDropdownController as dropdown_sort">
+          <label for="sort"> Sort by: </label>
+          <select name="dropdown_sort.Dropdown.sort_options" id="sort" ng-model="dropdown_sort.Dropdown.selected_sort" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_sort.Dropdown.sort_options">
+          </select>
+        </span>
+
         <input type="submit" ng-click="controller.buildQuery()" value="Search">
       </form>
-      
+
       <hr>
-      
+
       <div id=results ng-show="controller.result">
         <label>Filter Results: <input ng-model="searchText"></label>
         <p ng-repeat="data in controller.result | filter:searchText">

@@ -1,10 +1,10 @@
 angular.module("summerApp").controller("summerController", ["$env", "$http", "SharedDataService", function($env, $http, $SharedDataService) {
-  
+
   var self = this;
   var method = 'GET';
   var url = 'http://api.yelp.com/v2/search?callback=JSON_CALLBACK';
   self.Dropdown = $SharedDataService;
-  
+
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
@@ -14,6 +14,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     self.params.category_filter = self.Dropdown.selected_categories.join(",");
     // console.log(self.Dropdown.selected_categories.join(","));
     self.params.term = self.term;
+    self.params.sort = self.Dropdown.selected_sort;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();
     var signature = oauthSignature.generate(method, url, self.params, $env.consumerSecret, $env.tokenSecret);
@@ -42,6 +43,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       oauth_timestamp: "",
       oauth_token: $env.oauth_token,
       oauth_version: "1.0",
+      sort: "",
       term: ""
     };
   };
