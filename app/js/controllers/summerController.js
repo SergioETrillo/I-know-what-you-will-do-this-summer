@@ -9,7 +9,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
-    self.params.radius_filter = self.radius_filter * 1000;
+    self.params.radius_filter = (typeof self.radius_filter === 'undefined') ? 5000 : self.radius_filter*1000;
     self.params.cc = self.Dropdown.selected_country;
     self.params.category_filter = self.Dropdown.selected_categories.join(",");
     // console.log(self.Dropdown.selected_categories.join(","));

@@ -15,14 +15,27 @@
         </div>
 
         Location:
-        <input ng-change="controller.update()" type="text" ng-model="controller.location"required>
+        <input ng-change="controller.update()" type="text" ng-model="controller.location" required>
         Find:
-        <input ng-change="controller.update()" type="text" ng-model="controller.term" required>
+        <input ng-change="controller.update()" type="text" ng-model="controller.term">
         in a Radius of (Km):
-        <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter" required>
+        <input ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
 
         <input type="submit" ng-click="controller.buildQuery()" value="Search">
       </form>
-      <p>{{controller.location}}</p>
+      
+      <hr>
+      
+      <div id=results ng-show="controller.result">
+        <label>Filter Results: <input ng-model="searchText"></label>
+        <p ng-repeat="data in controller.result | filter:searchText">
+          {{data.name}}
+          <img src="{{data.rating_img_url}}"><br>
+          <a href="{{data.url}}" target="_blank">Yelp info</a><br>
+          {{data.phone}}<br>
+          {{data.snippet_text}}<br>
+          <img src="{{data.image_url}}"><br>
+        </p>
+      </div>
     </div>
 
