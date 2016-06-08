@@ -2,7 +2,7 @@ summerApp.controller('CountryDropdownController', ['SharedDataService',
   function($SharedDataService) {
   var self = this;
   self.Dropdown = $SharedDataService;
-  self.Dropdown.select_country = null;
+  self.Dropdown.selected_country = null;
   self.Dropdown.country_options = [
     {id: 'AR', name: 'Argentina'},
     {id: 'AU', name: 'Australia'},

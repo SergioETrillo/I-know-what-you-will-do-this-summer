@@ -2,7 +2,7 @@ summerApp.controller('CategoriesDropdownController', ['SharedDataService',
   function($SharedDataService) {
     var self = this;
     self.Dropdown = $SharedDataService;
-    self.Dropdown.selected_categories = ['active'];
+    self.Dropdown.selected_categories = null;
     self.Dropdown.categories_options = [
       {id: "active", name: "Sports & Leisure"},
       {id: "arts", name: "Arts & Entertainment"},
