@@ -21,4 +21,18 @@
       <input type="button" ng-click="controller.buildQuery()" value="Search">
       </form>
       <p>{{controller.location}}</p>
+
+    <!-- results listing starts here -->
+
+      <div id=results ng-show="controller.result">
+        <label>Filter Results: <input ng-model="searchText"></label>
+        <p ng-repeat="data in controller.result | filter:searchText">
+          {{data.name}}
+          <img src="{{data.rating_img_url}}"><br>
+          <a href="{{data.url}}" target="_blank">Yelp info</a><br>
+          {{data.phone}}<br>
+          {{data.snippet_text}}<br>
+          <img src="{{data.image_url}}"><br>
+        </p>
+      </div>
     </div>
