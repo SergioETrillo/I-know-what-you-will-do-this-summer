@@ -1,0 +1,63 @@
+    /* Remove the navbar's default rounded borders and increase the bottom margin */
+    .navbar {
+      margin-bottom: 50px;
+      border-radius: 0;
+    }
+
+    /* Remove the jumbotron's default bottom margin */
+     .jumbotron {
+      margin-bottom: 0;
+    }
+
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+
+    #partnership {
+      font-size: 10px;
+      font-style: italic;
+    }
+
+    .myform {
+      margin-top: 20px;
+      margin-bottom: 20px;
+/*      margin-right: 10%;
+      margin-left: 10%;*/
+      text-align: center;
+    }
+
+    #categories {
+      width: 60%;
+    }
+
+    .formula1 {
+      width: 60%;
+      text-align: center;
+    }
+
+
+    #location {
+      width: 150px;
+    }
+
+
+    .suggestions {
+      float: left;
+      width: 33%;
+      height: 300px;
+      margin: 3em;
+      margin-bottom: 10px;
+
+    }
+
+
+    .after-box {
+      clear: left;
+    }
+
+    .results {
+      background-color: orange;
+      width: 100%;
+    }
