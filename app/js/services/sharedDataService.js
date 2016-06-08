@@ -1,4 +1,4 @@
-summerApp.service('sharedDataService', function () {
+summerApp.service('SharedDataService', function () {
      var Dropdown = {
         country: ''
     };

@@ -1,11 +1,14 @@
-angular.module("summerApp").controller("summerController", ["$env", "$http", "$scope", "sharedDataService", function($env, $http, $scope, sharedDataService) {
+angular.module("summerApp").controller("summerController", ["$env", "$http", "$scope", "SharedDataService", function($env, $http, $scope, $SharedDataService) {
   var self = this;
-  $scope.Dropdown = sharedDataService;
+
+
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
     self.params.location = self.location;
-    self.params.cc = Dropdown.country;
+    $scope.Dropdown = $SharedDataService;
+    console.log($scope.Dropdown.country);
+    self.params.cc = $scope.Dropdown.country;
     self.params.term = self.term;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();

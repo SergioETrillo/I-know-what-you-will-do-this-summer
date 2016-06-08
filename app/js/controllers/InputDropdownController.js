@@ -1,6 +1,6 @@
-summerApp.controller('InputDropdownController', ['$scope', 'sharedDataService',
-  function($scope, $sharedDataService) {
-  $scope.Dropdown = sharedDataService;
+summerApp.controller('InputDropdownController', ['$scope', 'SharedDataService',
+  function($scope, $SharedDataService) {
+  $scope.Dropdown = $SharedDataService;
   $scope.data = {
     country: null,
     availableOptions: [
