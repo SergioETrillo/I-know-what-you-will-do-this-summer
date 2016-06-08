@@ -19,6 +19,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     self.params.oauth_timestamp = new Date().getTime();
     var signature = oauthSignature.generate(method, url, self.params, $env.consumerSecret, $env.tokenSecret);
     self.params.oauth_signature = signature;
+    self.getWeather();
   };
 
   self.buildQuery = function(){
@@ -56,6 +57,25 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
 
   self.doSort = function() {
     self.result = self.result.reverse();
+  }
+
+  self.getWeather = function() {
+    var url = 'http://api.openweathermap.org/data/2.5/weather?appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+    $http.jsonp(url, { params : {
+      q : self.location,
+      units : 'metric',
+      callback: 'JSON_CALLBACK'
+    }})
+    .success(function(data, status, headers, config) {
+      // self.temp = data.temp;
+      self.main = data.main;
+      self.wind = data.wind;
+      self.description = data.weather[0].description;
+      console.log(self.temp); 
+    })
+    .error(function(data, status, headers, config) {
+      $log.error('Could not retrieve data from ' + url);
+    });
   }
 
 }]);

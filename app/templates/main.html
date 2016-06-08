@@ -15,7 +15,14 @@
         </div>
 
         Location:
-        <input ng-change="controller.update()" type="text" ng-model="controller.location" required>
+        <input ng-change="controller.update()" type="text" ng-model="controller.location" required><br/>
+        
+        <p ng-show="controller.location">
+<!--           <button ng-click="controller.getWeather()"></button>
+ -->          Forecast weather: {{controller.main.temp}}°C {{controller.description}}
+        </p>
+        <br/>
+
         Find:
         <input ng-change="controller.update()" type="text" ng-model="controller.term">
         in a Radius of (Km):
