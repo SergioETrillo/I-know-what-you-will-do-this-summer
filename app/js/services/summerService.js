@@ -1,24 +1,14 @@
-// summerApp.service("summerService", [ "$env", "summerFactory", "$http", function( $env, summerFactory, $http) {
+summerApp.service("summerService", ["$http", function($http) {
 
-//   this.getResults = function() {
-//     var respFromAPI =$http.get($env.apiURL).then(_iterateThrough);
-//     console.log("resp from API:",respFromAPI);
-//     return respFromAPI;
-//   };
+  this.getHols = function() {
+    var arr = []
+    return $http.get('http://holiday-info-baby.herokuapp.com/')
+    .then(function(response){
+      response.data.forEach(function(stuff){
+        arr.push(stuff);
+      });
+      return arr
+    });
+  };
+}]);
 
-
-//   // function _iterateThrough (response) {
-//   //   var articles = [];
-
-//   //   response.data.response.results.forEach(function(object) {
-//   //     $http.get($env.summaryUrl + object.webUrl).success(function(response){
-//   //       articles.push(new SummaryFactory(object.webTitle, object.webPublicationDate,
-//   //       object.fields.thumbnail, object.fields.body, object.webUrl, response.sentences));
-//   //     });
-//   //   });
-
-//   //   return articles;
-//   // }
-
-
-// }]);

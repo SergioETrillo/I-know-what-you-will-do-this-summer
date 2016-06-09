@@ -7,17 +7,44 @@
 
 <div class="container-fluid text-center">
   <h3> Holiday Suggestion Generator </h3>
-  <h5>Please select some catagories so we can tell you where to go on holiday</h5>
+  <h5>Please select some categories so we can tell you where to go on holiday</h5>
 
   <div ng-controller="holidaySuggestionController as ctrl">
-    <label for="categories"> Categories: </label>
-      <select name="ctrl.categories" id="categories" ng-model="ctrl.selectedCategories" ng-options="obj.id as obj.name for obj in ctrl.categories" multiple>
-      </select>
-    <button ng-click="ctrl.holiday()">Submit</button>
+    <label for="categories"> Categories: {{ctrl.cats}} </label><br>
 
-    {{ctrl.suggestion.location}}<br>
+    <img src="https://pbs.twimg.com/profile_images/641353910561566720/VSxsyxs7.jpg" alt='1' height="200" width="200" vspace="5" ng-click="ctrl.addCat('hot')">
 
+    <img src="http://media1.santabanta.com/full1/Air%20Transport/Planes/planes-189a.jpg" alt="2" height="200" width="200" vspace="5" ng-click="ctrl.addCat('abroad')">
+
+    <img src="http://bboceansuites.com/wp-content/uploads/2015/05/sunset-beach-chairs-stock-footage.jpg" alt="3" height="200" width="200" vspace="5" ng-click="ctrl.addCat('beach')">
+
+    <img src="http://www.gannett-cdn.com/-mm-/e977604c48dc946642ef245e7fae010a4fc7beed/c=4-0-3595-2700&r=x513&c=680x510/local/-/media/2015/07/09/USATODAY/ExperienceAmerica/635720444062890848-Alabama---.jpg" alt="4" height="200" width="200" vspace="5" ng-click="ctrl.addCat('scenic')">
+
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS-fvEcdR9TlQuW6z-UTdOQIdKDGmD55zFPeC7QfyROCmsFGyDx" alt="5" height="200" width="200" vspace="5" ng-click="ctrl.addCat('sport')">
+
+    <br>
+    <img src="https://pixabay.com/static/uploads/photo/2015/08/31/19/24/couple-915983_960_720.jpg" alt="6" height="200" width="200" vspace="5" ng-click="ctrl.addCat('couple')">
+
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2cbL8cxkDR5q6bwRQ5ahyxLRU2hBwIgjGjf4uawwFFCyxf3U88g" alt="7" height="200" width="200" vspace="5" ng-click="ctrl.addCat('family')">
+
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1UoT-yANwx9k7fPN73VajsZYbbfxLXfFL6t33cp5o7KaZtK9m" alt="8" height="200" width="200" vspace="5" ng-click="ctrl.addCat('history')">
+
+    <img src="http://static1.squarespace.com/static/56744689c647ad29367d624e/t/5697f71405caa7eb5b85475c/1450734853177/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" height="200" width="200" vspace="5" ng-click="ctrl.addCat('party')">
+
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_(cropped).jpg" alt="10" height="200" width="200" vspace="5" ng-click="ctrl.addCat('food')">
+    <br>
+
+      <!-- <select name="ctrl.categories" id="categories" ng-model="ctrl.selectedCategories" ng-options="obj.id as obj.name for obj in ctrl.categories" multiple>
+      </select><br> -->
+    <button ng-click="ctrl.holiday()">Submit</button><br>
+      <div>
+        <h4>{{ctrl.suggestion.location}}</h4><br>
+        <img src="{{ctrl.suggestion.imgurl}}"><br>
+        {{ctrl.suggestion.info}}
+      </div>
+<br><br><br>
   </div>
+  If You have somewhere specific in mind or require more information about what is on offer in the area around your destination, please use the form below...
 </div>
 <hr>
 <div class="container-fluid text-center">
@@ -36,11 +63,12 @@
           <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-2" required>
         </div>
         <div>
-          <label for="forecast" class="col-sm-2">Forecast:</label>
-          <p ng-show="controller.location" class="col-sm-2">
-            {{controller.temp}}°C {{controller.description}}
-          </p>
-        </div>
+         <label for="forecast" class="col-sm-1">Forecast:</label>
+         <p ng-show="controller.location" class="col-sm-3">
+         {{controller.temp}} {{controller.weather}}
+           <img src="{{controller.icon_url}}" width="25%" heigth="25%">
+         </p>
+       </div>
       </div>
 
       <div class="row myform">
