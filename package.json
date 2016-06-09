@@ -8,7 +8,8 @@
     "install-selenium-dependencies": "./node_modules/protractor/bin/webdriver-manager update",
     "install-bower-dependencies": "./node_modules/bower/bin/bower install",
     "test-features": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
-    "test-units": "./node_modules/karma-cli/bin/karma start test/karma.conf.js"
+    "test-units": "./node_modules/karma-cli/bin/karma start test/karma.conf.js",
+    "postinstall": "bower install"
   },
   "author": "",
   "license": "MIT",
@@ -18,6 +19,7 @@
   },
   "dependencies": {
     "bower": "^1.7.9",
+    "express": "^4.13.4",
     "http-server": "^0.9.0",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.22",

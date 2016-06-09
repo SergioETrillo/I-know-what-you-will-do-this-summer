@@ -2,7 +2,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
 
   var self = this;
   var method = 'GET';
-  var url = 'http://api.yelp.com/v2/search?callback=JSON_CALLBACK';
+  var url = 'https://api.yelp.com/v2/search?callback=JSON_CALLBACK';
   self.Dropdown = $SharedDataService;
 
   self.update = function(){
@@ -70,7 +70,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       self.main = data.main;
       self.wind = data.wind;
       self.description = data.weather[0].description;
-      console.log(self.temp); 
+      console.log(self.temp);
     })
     .error(function(data, status, headers, config) {
     });
