@@ -5,7 +5,21 @@
   </div>
 </div>
 
+<div class="container-fluid text-center">
+  <h3> Holiday Suggestion Generator </h3>
+  <h5>Please select some catagories so we can tell you where to go on holiday</h5>
 
+  <div ng-controller="holidaySuggestionController as ctrl">
+    <label for="categories"> Categories: </label>
+      <select name="ctrl.categories" id="categories" ng-model="ctrl.selectedCategories" ng-options="obj.id as obj.name for obj in ctrl.categories" multiple>
+      </select>
+    <button ng-click="ctrl.holiday()">Submit</button>
+
+    {{ctrl.suggestion.location}}<br>
+
+  </div>
+</div>
+<hr>
 <div class="container-fluid text-center">
   <h3> What can I search for you ?</h3>
 
@@ -22,24 +36,23 @@
           <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-2" required>
         </div>
         <div>
-          <label for="forecast" class="col-sm-1">Forecast:</label>
-          <p ng-show="controller.location" class="col-sm-3">
-          {{controller.temp}} {{controller.weather}}
-            <img src="{{controller.icon_url}}" width="25%" heigth="25%">
+          <label for="forecast" class="col-sm-2">Forecast:</label>
+          <p ng-show="controller.location" class="col-sm-2">
+            {{controller.temp}}°C {{controller.description}}
           </p>
         </div>
       </div>
 
       <div class="row myform">
-        <div ng-controller="CategoriesDropdownController as dropdown_categories">
-          <label for="categories" class="col-sm-2">Categories:</label>
-          <select id="categories" name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple class="col-sm-4">
-          </select>
-        </div>
-        <div>
+          <div ng-controller="CategoriesDropdownController as dropdown_categories">
+            <label for="categories" class="col-sm-2">Categories:</label>
+            <select id="categories" name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple class="col-sm-4">
+            </select>
+          </div>
+          <div>
           <label for="radius" class="col-sm-2">Radius (Km):</label>
-          <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-1">
-        </div>
+            <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-1">
+          </div>
         <div ng-controller="SortDropdownController as dropdown_sort">
           <label for="sort" class="col-sm-1">Sort by:</label>
           <select name="dropdown_sort.Dropdown.sort_options" id="sort" ng-model="dropdown_sort.Dropdown.selected_sort" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_sort.Dropdown.sort_options" class="col-sm-2">
