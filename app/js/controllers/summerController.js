@@ -66,7 +66,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       callback: 'JSON_CALLBACK'
     }})
     .success(function(data, status, headers, config) {
-      // self.temp = data.temp;
+      self.temp = Math.round(data.main.temp);
       self.main = data.main;
       self.wind = data.wind;
       self.description = data.weather[0].description;
