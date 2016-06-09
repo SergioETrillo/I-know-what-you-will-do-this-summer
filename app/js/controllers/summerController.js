@@ -59,7 +59,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
   }
 
   self.getWeather = function() {
-    var url = 'http://api.openweathermap.org/data/2.5/weather?appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+    var url = 'http://api.openweathermap.org/data/2.5/weather?appid=' + $env.weather_id;
     $http.jsonp(url, { params : {
       q : self.location,
       units : 'metric',
