@@ -10,7 +10,6 @@
   background-image: url('/images/souvenir.jpg');
 }
 
-/* Add a gray background color and some padding to the footer */
 footer {
   background-color: #f2f2f2;
   padding: 25px;
@@ -27,27 +26,17 @@ footer {
   text-align: center;
 }
 
-/*#categories {
-  width: 60%;
-}*/
-
 .formula1 {
-  width: 70%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  margin-right: 10%;
   margin-bottom: 20px;
-}
-
-#location {
-  width: 150px;
 }
 
 .suggestions {
   float: left;
   width: 25%;
   height: 300px;
-  margin: 1em;
+  margin-right: 1em;
+  margin-bottom: 4em;
 }
 
 .after-box {
@@ -55,10 +44,6 @@ footer {
 }
 
 .results {
-  width: 100%;
-  text-align: center;
   display: flex;
-  align-items: center;
-  margin-left: 10%;
-  margin-right: auto;
+  margin-left: 20%;
 }

@@ -18,14 +18,13 @@
           </select>
         </div>
         <div>
-          <label for="location" class="col-sm-2">Location:</label>
-          <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-2" required>
+          <label for="location" class="col-sm-1">Location:</label>
+          <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-4" required>
         </div>
         <div>
-          <label for="forecast" class="col-sm-1">Forecast:</label>
           <p ng-show="controller.location" class="col-sm-3">
           {{controller.temp}} {{controller.weather}}
-            <img src="{{controller.icon_url}}" width="25%" heigth="25%">
+            <span><img src="{{controller.icon_url}}" width="20%" heigth="20%"></span>
           </p>
         </div>
       </div>
@@ -56,12 +55,13 @@
     </form>
   </div>
 
+  <hr>
   <!-- RESULTS -->
 
   <div class="results">
     <div ng-show="controller.result">
-      <label>Filter Results: <input ng-model="searchText"></label>
-      <hr>
+      <input class="text-center" ng-model="searchText" placeholder="Filter results...">
+      <br><br>
       <box ng-repeat="data in controller.result | filter:searchText" class="suggestions">
         <div class="panel panel-default center-block">
           <div class="panel-heading">
