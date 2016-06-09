@@ -22,8 +22,10 @@
           <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-2" required>
         </div>
         <div>
-          <label for="radius" class="col-sm-2">Radius (Km):</label>
-          <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-2">
+          <label for="forecast" class="col-sm-2">Forecast:</label>
+          <p ng-show="controller.location" class="col-sm-2">
+            Forecast  weather: {{controller.main.temp}}°C {{controller.description}}
+          </p>
         </div>
       </div>
 
@@ -33,9 +35,14 @@
             <select id="categories" name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple class="col-sm-4">
             </select>
           </div>
-        <div>
-          <label for="sort" class="col-sm-2">Sort by:</label>
-          <input type="text" class="col-sm-4">
+          <div>
+          <label for="radius" class="col-sm-2">Radius (Km):</label>
+            <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-1">
+          </div>
+        <div ng-controller="SortDropdownController as dropdown_sort">
+          <label for="sort" class="col-sm-1">Sort by:</label>
+          <select name="dropdown_sort.Dropdown.sort_options" id="sort" ng-model="dropdown_sort.Dropdown.selected_sort" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_sort.Dropdown.sort_options" class="col-sm-2">
+          </select>
         </div>
       </div>
 
@@ -43,6 +50,7 @@
         <label for="find" class="col-sm-2">I want...</label>
         <input class="col-sm-10" ng-change="controller.update()" type="text" ng-model="controller.term">
       </div>
+      
       <input class="btn btn-primary" type="submit" ng-click="controller.buildQuery()" value="Search">
     </form>
   </div>
