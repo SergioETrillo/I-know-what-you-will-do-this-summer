@@ -24,7 +24,6 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
   self.buildQuery = function(){
     $http.jsonp(url, {params: self.params}).then(function(response){
       self.result = response.data.businesses;
-      console.log(self.result);
     });
   };
 
@@ -56,24 +55,16 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
 
   self.doSort = function() {
     self.result = self.result.reverse();
-  }
+  };
 
   self.getWeather = function() {
-    var url = 'http://api.openweathermap.org/data/2.5/weather?appid=' + $env.weather_id;
-    $http.jsonp(url, { params : {
-      q : self.location,
-      units : 'metric',
-      callback: 'JSON_CALLBACK'
-    }})
-    .success(function(data, status, headers, config) {
-      self.temp = Math.round(data.main.temp);
-      self.main = data.main;
-      self.wind = data.wind;
-      self.description = data.weather[0].description;
-      console.log(self.temp);
-    })
-    .error(function(data, status, headers, config) {
+    var url = "https://api.wunderground.com/api/403cd5091c5612ec/conditions/q/" + self.Dropdown.selected_country + "/" + self.location + ".json";
+    $http.get(url)
+    .success(function(response){
+      self.temp = response.current_observation.temp_c + "°C";
+      self.weather = response.current_observation.weather;
+      self.icon_url = response.current_observation.icon_url;
     });
-  }
+  };
 
 }]);

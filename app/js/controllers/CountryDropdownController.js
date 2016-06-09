@@ -4,6 +4,8 @@ summerApp.controller('CountryDropdownController', ['SharedDataService',
   self.Dropdown = $SharedDataService;
   self.Dropdown.selected_country = null;
   self.Dropdown.country_options = [
+    {id: 'ES', name: 'España'},
+    {id: 'GB', name: 'United Kingdom'},
     {id: 'AR', name: 'Argentina'},
     {id: 'AU', name: 'Australia'},
     {id: 'AT', name: 'Austria'},
@@ -28,13 +30,11 @@ summerApp.controller('CountryDropdownController', ['SharedDataService',
     {id: 'PT', name: 'Portugal'},
     {id: 'IE', name: 'Republic of Ireland'},
     {id: 'SG', name: 'Singapore'},
-    {id: 'ES', name: 'España'},
     {id: 'SE', name: 'Sweden'},
     {id: 'CH', name: 'Switzerland'},
     {id: 'TW', name: 'Taiwan'},
     {id: 'NL', name: 'The Netherlands'},
     {id: 'TR', name: 'Turkey'},
-    {id: 'GB', name: 'United Kingdom'},
     {id: 'US', name: 'United States'}
   ];
 }]);
