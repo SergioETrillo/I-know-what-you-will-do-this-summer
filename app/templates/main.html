@@ -7,73 +7,68 @@
 
 
 <div class="container-fluid text-center">
-
-  <h3> Holiday Time! What are you looking for?</h3>
+  <h3> What can I search for you ?</h3>
 
   <div ng-controller="summerController as controller">
     <div class="formula1 text-center">
-      <form name="myForm">
-        <div class="row myform">
-          <div class="col-sm-4" ng-controller="CountryDropdownController as dropdown_cc">
-            <label for="country"> Country: </label>
-            <select name="dropdown_cc.Dropdown.country_options" id="country" ng-model="dropdown_cc.Dropdown.selected_country" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_cc.Dropdown.country_options">
+      <div class="row myform">
+        <div ng-controller="CountryDropdownController as dropdown_cc">
+          <label for="country" class="col-sm-2">Country:</label>
+          <select name="dropdown_cc.Dropdown.country_options" id="country" ng-model="dropdown_cc.Dropdown.selected_country" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_cc.Dropdown.country_options" class="col-sm-2">
+          </select>
+        </div>
+        <div>
+          <label for="location" class="col-sm-2">Location:</label>
+          <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" class="col-sm-2" required>
+        </div>
+        <div>
+          <label for="radius" class="col-sm-2">Radius (Km):</label>
+          <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-2">
+        </div>
+      </div>
+
+      <div class="row myform">
+          <div ng-controller="CategoriesDropdownController as dropdown_categories">
+            <label for="categories" class="col-sm-2">Categories:</label>
+            <select id="categories" name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple class="col-sm-4">
             </select>
           </div>
-          <div class="col-sm-4">
-            <label for="location">Location:</label>
-            <input id="location" ng-change="controller.update()" type="text" ng-model="controller.location" required>
-          </div>
-          <div class="col-sm-4">
-            <label for="radius">in a Radius of (Km):</label>
-            <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter">
-          </div>
+        <div>
+          <label for="sort" class="col-sm-2">Sort by:</label>
+          <input type="text" class="col-sm-4">
         </div>
-
-        <div class="row myform">
-          <div class="col-sm-8">
-            <div ng-controller="CategoriesDropdownController as dropdown_categories">
-              <label for="categories"> Categories: </label>
-              <select id="categories" name="dropdown_categories.Dropdown.categories_options" id="categories" ng-model="dropdown_categories.Dropdown.selected_categories" ng-change="controller.update()" ng-options="obj.id as obj.name for obj in dropdown_categories.Dropdown.categories_options" multiple>
-              </select>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <label for="sort"> Sort by: </label>
-            <input type="text" class="sortby">
-          </div>
-        </div>
-
-        <div class="row myform">
-          <div class="col-sm-12">
-            <label for="find">I want...</label>
-            <input ng-change="controller.update()" type="text" ng-model="controller.term">
-          </div>
-        </div>
-        <br>
-        <input class="btn btn-primary" type="submit" ng-click="controller.buildQuery()" value="Search">
-      </form>
-    </div>
-    <!-- RESULTS -->
-    <div class="results">
-      <div ng-show="controller.result">
-        <label>Filter Results: <input ng-model="searchText"></label>
-        <hr>
-        <box ng-repeat="data in controller.result | filter:searchText" class="suggestions">
-          <div class="panel panel-default center-block">
-            <div class="panel-heading">
-              <p>{{data.name}}</p>
-            </div>
-            <div class="panel-body">
-              <img src="{{data.rating_img_url}}"><br>
-              <a href="{{data.url}}" target="_blank">Yelp info</a><br>
-              {{data.phone}}<br>
-              {{data.snippet_text}}<br>
-              <img src="{{data.image_url}}"><br>
-            </div>
-          </div>
-        </box>
       </div>
+
+      <div class="row myform">
+        <label for="find" class="col-sm-2">I want...</label>
+        <input class="col-sm-10" ng-change="controller.update()" type="text" ng-model="controller.term">
+      </div>
+      <input class="btn btn-primary" type="submit" ng-click="controller.buildQuery()" value="Search">
+    </form>
+  </div>
+  
+  <!-- RESULTS -->
+  
+  <div class="results">
+    <div ng-show="controller.result">
+      <label>Filter Results: <input ng-model="searchText"></label>
+      <hr>
+      <box ng-repeat="data in controller.result | filter:searchText" class="suggestions">
+        <div class="panel panel-default center-block">
+          <div class="panel-heading">
+            <p>{{data.name}}</p>
+          </div>
+          <div class="panel-body">
+            <img src="{{data.rating_img_url}}"><br>
+            <a href="{{data.url}}" target="_blank">Yelp info</a><br>
+            {{data.phone}}<br>
+            {{data.snippet_text}}<br>
+            <img src="{{data.image_url}}"><br>
+          </div>
+        </div>
+      </box>
     </div>
   </div>
+</div>
 </div>
 
