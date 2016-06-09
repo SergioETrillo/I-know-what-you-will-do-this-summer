@@ -1,10 +1,10 @@
 angular.module("summerApp").controller("summerController", ["$env", "$http", "SharedDataService", function($env, $http, $SharedDataService) {
-  
+
   var self = this;
   var method = 'GET';
   var url = 'http://api.yelp.com/v2/search?callback=JSON_CALLBACK';
   self.Dropdown = $SharedDataService;
-  
+
   self.update = function(){
     self.reset();
     self.params.callback = 'angular.callbacks._0';
@@ -14,10 +14,12 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     self.params.category_filter = self.Dropdown.selected_categories.join(",");
     // console.log(self.Dropdown.selected_categories.join(","));
     self.params.term = self.term;
+    self.params.sort = self.Dropdown.selected_sort;
     self.params.oauth_nonce = randomString(32, '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ');
     self.params.oauth_timestamp = new Date().getTime();
     var signature = oauthSignature.generate(method, url, self.params, $env.consumerSecret, $env.tokenSecret);
     self.params.oauth_signature = signature;
+    self.getWeather();
   };
 
   self.buildQuery = function(){
@@ -42,6 +44,7 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
       oauth_timestamp: "",
       oauth_token: $env.oauth_token,
       oauth_version: "1.0",
+      sort: "",
       term: ""
     };
   };
@@ -50,6 +53,29 @@ angular.module("summerApp").controller("summerController", ["$env", "$http", "Sh
     var result = '';
     for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
       return result;
+  }
+
+  self.doSort = function() {
+    self.result = self.result.reverse();
+  }
+
+  self.getWeather = function() {
+    var url = 'http://api.openweathermap.org/data/2.5/weather?appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+    $http.jsonp(url, { params : {
+      q : self.location,
+      units : 'metric',
+      callback: 'JSON_CALLBACK'
+    }})
+    .success(function(data, status, headers, config) {
+      // self.temp = data.temp;
+      self.main = data.main;
+      self.wind = data.wind;
+      self.description = data.weather[0].description;
+      console.log(self.temp); 
+    })
+    .error(function(data, status, headers, config) {
+      $log.error('Could not retrieve data from ' + url);
+    });
   }
 
 }]);
