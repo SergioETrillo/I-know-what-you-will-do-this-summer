@@ -1,7 +1,7 @@
 {
-  "name": "news-summary",
+  "name": "summer",
   "version": "0.1.0",
-  "description": "Browse a summary of the news",
+  "description": "I know what you will do this summer",
   "scripts": {
     "start-app": "cd app && ../node_modules/http-server/bin/http-server",
     "start-selenium": "./node_modules/protractor/bin/webdriver-manager start",
@@ -9,13 +9,13 @@
     "install-bower-dependencies": "./node_modules/bower/bin/bower install",
     "test-features": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
     "test-units": "./node_modules/karma-cli/bin/karma start test/karma.conf.js",
-    "postinstall": "bower install"
+    "postinstall": "./node_modules/bower/bin/bower install"
   },
   "author": "",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/makersacademy/news-summary.git"
+    "url": "git+https://github.com/tigretoncio/I-know-what-you-will-do-this-summer"
   },
   "dependencies": {
     "bower": "^1.7.9",
