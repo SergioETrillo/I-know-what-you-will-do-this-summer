@@ -45,11 +45,11 @@ The following technologies have been used:
 ## Pending items
 * Increase test coverage
 * Improve refactoring
- 
+
 ## General comment and reflection
 This project has been created as a result of the Makersthon exercise in week 9 of Makers Academy bootcamp program, (Apr-16 cohort).  The whole team generated ideas that were voted and Makers created selections of teams to work on different projects based on student's votes.  This was one of the projects chosen and we were assigned to it.
 
-The project was started from scratch, design and implementation and deployment taking a bit less than 4 days of intense work.  
+The project was started from scratch, design and implementation and deployment taking a bit less than 4 days of intense work.
 
 In the design it was recognised that there was not any need to use any backend platform, as we were just creating a "one page" frontend app, and therefore Angular was selected as the technology to use.  We chose the APIs to use and started diving into the documentation, as we had never used them before.  We did not have any experience in Oauth either, so it was a steep learning curve.
 

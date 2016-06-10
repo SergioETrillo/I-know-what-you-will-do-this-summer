@@ -7,48 +7,71 @@
 
 <div class="container-fluid text-center results-text">
   <h3> Holiday Suggestion Generator </h3>
-  <h5>Please select some categories so we can tell you where to go on holiday</h5>
+  <h4>Please select some categories so we can tell you where to go on holiday</h4>
 
   <div ng-controller="holidaySuggestionController as ctrl">
-    <label for="categories"> Categories: {{ctrl.cats}} </label><br>
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/sunny.jpg" alt='1' ng-click="ctrl.addCat('hot')"><span ng-show="ctrl.cats.includes('hot')" class="img-txt">Hot</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/sunny.jpg" alt='1' ng-click="ctrl.addCat('hot')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/planes.jpg" alt="2" ng-click="ctrl.addCat('abroad')"><span ng-show="ctrl.cats.includes('abroad')" class="img-txt">Abroad</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/planes.jpg" alt="2" ng-click="ctrl.addCat('abroad')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/sunset-beach-chairs-stock-footage.jpg" alt="3" ng-click="ctrl.addCat('beach')"><span ng-show="ctrl.cats.includes('beach')" class="img-txt">Beach</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/sunset-beach-chairs-stock-footage.jpg" alt="3" ng-click="ctrl.addCat('beach')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/635720444062890848-Alabama---.jpg" alt="4" ng-click="ctrl.addCat('scenic')"><span ng-show="ctrl.cats.includes('scenic')" class="img-txt">Scenic</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/635720444062890848-Alabama---.jpg" alt="4" ng-click="ctrl.addCat('scenic')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/pool.jpg" alt="5" ng-click="ctrl.addCat('sport')"><span ng-show="ctrl.cats.includes('sport')" class="img-txt">Sport</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/pool.jpg" alt="5" ng-click="ctrl.addCat('sport')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/couple-915983_960_720.jpg" alt="6" ng-click="ctrl.addCat('couple')"><span ng-show="ctrl.cats.includes('couple')" class="img-txt">Couple</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/couple-915983_960_720.jpg" alt="6" ng-click="ctrl.addCat('couple')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/family.jpg" alt="7" ng-click="ctrl.addCat('family')"><span ng-show="ctrl.cats.includes('family')" class="img-txt">Family</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/family.jpg" alt="7" ng-click="ctrl.addCat('family')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/clock.jpg" alt="8" ng-click="ctrl.addCat('history')"><span ng-show="ctrl.cats.includes('history')" class="img-txt">History</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/clock.jpg" alt="8" vspace="5" ng-click="ctrl.addCat('history')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" ng-click="ctrl.addCat('party')"><span ng-show="ctrl.cats.includes('party')" class="img-txt">Party</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" ng-click="ctrl.addCat('party')">
+    <span class="cat-img">
+      <img class="img-thumbnail" src="images/Foods_(cropped).jpg" alt="10" ng-click="ctrl.addCat('food')"><span ng-show="ctrl.cats.includes('food')" class="img-txt">Food</span>
+    </span>
 
-    <img class="img-thumbnail" src="images/Foods_(cropped).jpg" alt="10" vspace="5" ng-click="ctrl.addCat('food')">
     <br>
 
     <button ng-click="ctrl.holiday()" class="btn btn-primary" id="suggestion-button">Submit</button><br>
-      <div class="row">
-
-        <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
-        <div class="col-md-8">
-          <h4 style="text-align:left;">{{ctrl.suggestion.location}}</h4>
-          <p id="suggestion-text">{{ctrl.suggestion.info}}</p>
-        </div>
+    <div class="row">
+      <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
+      <div class="col-md-8">
+        <h4 style="text-align:left;">{{ctrl.suggestion.location}}</h4>
+        <p id="suggestion-text">{{ctrl.suggestion.info}}</p>
       </div>
-  <br>
-  </div>
-  <div id="give-me-more">
-    <strong>If You have somewhere specific in mind or require more information about what is on offer in the area around your destination, please use the form below...</strong>
+    </div>
+
+    <br>
+    
+    <div id="give-me-more">
+      <strong>If You have somewhere specific in mind or require more information about what is on offer in the area around your destination, please use the form below...</strong>
+    </div>
+
   </div>
 </div>
+
 <hr>
+
 <div class="container-fluid text-center">
   <h3> What can I search for you ?</h3>
 
@@ -81,7 +104,7 @@
           </div>
           <div>
             <label for="radius" class="col-sm-2">Radius (Km):</label>
-            <input id="radius" ng-change="controller.update()" type="text" ng-model="controller.radius_filter" class="col-sm-1">
+            <input id="radius" ng-change="controller.update()" type="number" min="1" max="10" ng-model="controller.radius_filter" class="col-sm-1">
           </div>
           <div ng-controller="SortDropdownController as dropdown_sort">
             <label for="sort" class="col-sm-1">Sort by:</label>
@@ -96,7 +119,6 @@
           <span class="col-sm-1"><input class="btn btn-primary" id="results-button" type="submit" ng-click="controller.buildQuery()" value="Search"></span>
           <p class="col-sm-7"></p>
         </div>
-
       </form>
     </div>
 
@@ -125,6 +147,8 @@
         </div>
       </div>
     </div>
+
   </div>
 </div>
+
 
