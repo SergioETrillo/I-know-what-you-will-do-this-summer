@@ -4,7 +4,7 @@ node_js:
 before_install:
   - sudo apt-get update
 script:
-  - npm run start
-  - sleep 3
   - npm run test-single
+  - npm run start-app
+  - npm run start-selenium
   - npm run protractor
