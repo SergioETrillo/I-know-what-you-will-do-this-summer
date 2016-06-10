@@ -8,7 +8,7 @@
 (Idea from [Ollie Haydon-Mulligan](https://github.com/ollieh-m))
 
 ## Project description
-I know what you'll do this summer is a single page application made in Angular.  The user has an option to select its type of ideal holiday, and the app suggests interesting locations to visit. Also, the user is able to search for any type of activities and resources due to the integration with the Yelp API.  Weather temperature is also provided.
+I know what you'll do this summer is a single page application made in Angular.  The user has an option to select its type of ideal holiday based on a number of holiday categories, and the app suggests interesting locations to visit. Also, the user is able to search for any type of activities and resources due to the integration with the Yelp API.  Finally when the user types a location, they automatically get the tempeture and current weather forecast.
 
 ## Deployed project
 Project is [deployed in Heroku](https://holiday-planner.herokuapp.com)
@@ -18,13 +18,14 @@ The following technologies have been used:
 * Angular 1.5.6
 * Oauth 1.0a
 * JavaScript OAuth 1.0a signature generator (RFC 5849) ([Marco Bettiolo](https://github.com/bettiolo))
-* Bootstrap
-* JQuery
+* Bootstrap 3.3.6
+* JQuery 1.12.2
 * Express 4.13.4 (for Heroku deployment)
 
 ## APIs used
 * Yelp (Resource finder)
 * Wunderground (Weather information)
+* Suggestion holiday (powered by Max! :) - [available here](https://holiday-info-baby.herokuapp.com)
 
 
 ## Technical Challenges
@@ -34,9 +35,15 @@ The following technologies have been used:
 
 * __Heroku deployment__: The deployment of single applications into Heroku like Angular is a challenge in itself, with the increased complication that there are very little references in Internet to find your way out.  The team was very proud to surmount the technical challenges in deploying and have the app available in Heroku in the third day of project development.
 
+## Successes
+* Integration and use of 3 APIs, one of them created by the team
+* Implementation of Oauth to make queries to Yelp
+* Weather integration
+* Responsiveness of the webpage for browsers and mobile devices
+* Deployment in Heroku
+
 ## Pending items
 * Increase test coverage
-* Ensure smooth display in mobile devices
 * Improve refactoring
  
 ## General comment and reflection
@@ -50,4 +57,11 @@ We used an agile methodology and quickly recognised that with our level of exper
 
 The team has worked together in a very effective way.  We have worked in pairs and rotating members, every getting involved in the areas we liked, and reviewing other's work to understand what they were doing. Everyone in the team has made capital contributions, and the result is very satisfactory.  We are proud of our work.
 
-At the same time, it has been lots of fun.  Nothing is probably more satisfying thanto resolve a particularly complex challenge, kick and scream for 5 minutes out of pure joy, (like Cristiano Ronaldo scoring the goal that means a Champions league), and then call an "emergency meeting" with the other half of the team to explain them that the project is a disaster and that we need to change quickly the technology and introduce Rails into the equation, (Sorry Ben and Max but we couldn't resist :) )
+At the same time, it has been lots of fun.  Nothing is probably more satisfying than to resolve a particularly complex challenge, kick and scream for 5 minutes out of pure joy, (like Cristiano Ronaldo scoring the goal that means a Champions league), and then call for an "emergency meeting" with the other half of the team to explain them that the project is a disaster and that we need to change everything and introduce Rails into the equation, (Sorry Ben and Max but we couldn't resist :) )
+
+##Special thanks to...
+* _Ben_, for patiently making all the requested changes for CSS styling, and rounding the pictures and making it looking all very nice!
+* _Max_, for creating his holiday-info-baby nice API and storing it in Heroku, and then driving the integration of the holiday suggestions into the web
+* _Omar_, for resolving problems that a whole bunch of people would struggle to resolve in months, in a couple of hours of mmmmms, erghrrs, and ahhhs!!!   (Qué bueno eres carajo! :)
+* _Sergio_, for ordering tea with milk and sugar from the rest of the team, making bad jokes about broken software, creating supernatural bugs due to the most silly mistakes, and in some cases even resolving those bugs!
+
