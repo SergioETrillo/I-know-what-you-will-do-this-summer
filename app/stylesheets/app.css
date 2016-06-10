@@ -10,6 +10,10 @@
   background-image: url('/images/souvenir.jpg');
 }
 
+h1, h2, h3, h4, .btn {
+  font-family: 'Chewy', cursive;
+}
+
 footer {
   background-color: #f2f2f2;
   padding: 25px;
@@ -47,4 +51,37 @@ footer {
   margin-bottom: 20px;
   width: 50%;
   text-align: center;
+}
+
+.img-thumbnail  {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+  margin-left: 5px; margin-right: 5px;
+}
+
+.img-thumbnail:active {
+  background: rgba(42,32,157,.99);
+}
+
+#suggestion-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#results-button {
+  margin-left: 15px;
+}
+
+#suggestion-text {
+  text-align: justify;
+  padding-right: 30px;
+}
+
+#suggestion-image {
+  width: 80%;
+}
+
+#give-me-more {
+  font-size: 16px;
 }

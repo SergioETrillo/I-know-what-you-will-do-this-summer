@@ -5,44 +5,48 @@
   </div>
 </div>
 
-<div class="container-fluid text-center">
+<div class="container-fluid text-center results-text">
   <h3> Holiday Suggestion Generator </h3>
   <h5>Please select some categories so we can tell you where to go on holiday</h5>
 
   <div ng-controller="holidaySuggestionController as ctrl">
     <label for="categories"> Categories: {{ctrl.cats}} </label><br>
 
-    <img src="https://pbs.twimg.com/profile_images/641353910561566720/VSxsyxs7.jpg" alt='1' height="200" width="200" vspace="5" ng-click="ctrl.addCat('hot')">
+    <img class="img-thumbnail" src="https://pbs.twimg.com/profile_images/641353910561566720/VSxsyxs7.jpg" alt='1' vspace="5" ng-click="ctrl.addCat('hot')">
 
-    <img src="http://media1.santabanta.com/full1/Air%20Transport/Planes/planes-189a.jpg" alt="2" height="200" width="200" vspace="5" ng-click="ctrl.addCat('abroad')">
+    <img class="img-thumbnail" src="http://media1.santabanta.com/full1/Air%20Transport/Planes/planes-189a.jpg" alt="2" vspace="5" ng-click="ctrl.addCat('abroad')">
 
-    <img src="http://bboceansuites.com/wp-content/uploads/2015/05/sunset-beach-chairs-stock-footage.jpg" alt="3" height="200" width="200" vspace="5" ng-click="ctrl.addCat('beach')">
+    <img class="img-thumbnail" src="http://bboceansuites.com/wp-content/uploads/2015/05/sunset-beach-chairs-stock-footage.jpg" alt="3"  vspace="5" ng-click="ctrl.addCat('beach')">
 
-    <img src="http://www.gannett-cdn.com/-mm-/e977604c48dc946642ef245e7fae010a4fc7beed/c=4-0-3595-2700&r=x513&c=680x510/local/-/media/2015/07/09/USATODAY/ExperienceAmerica/635720444062890848-Alabama---.jpg" alt="4" height="200" width="200" vspace="5" ng-click="ctrl.addCat('scenic')">
+    <img class="img-thumbnail" src="http://www.gannett-cdn.com/-mm-/e977604c48dc946642ef245e7fae010a4fc7beed/c=4-0-3595-2700&r=x513&c=680x510/local/-/media/2015/07/09/USATODAY/ExperienceAmerica/635720444062890848-Alabama---.jpg" alt="4" vspace="5" ng-click="ctrl.addCat('scenic')">
 
-    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS-fvEcdR9TlQuW6z-UTdOQIdKDGmD55zFPeC7QfyROCmsFGyDx" alt="5" height="200" width="200" vspace="5" ng-click="ctrl.addCat('sport')">
+    <img class="img-thumbnail" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS-fvEcdR9TlQuW6z-UTdOQIdKDGmD55zFPeC7QfyROCmsFGyDx" alt="5" vspace="5" ng-click="ctrl.addCat('sport')">
 
+    <img class="img-thumbnail" src="https://pixabay.com/static/uploads/photo/2015/08/31/19/24/couple-915983_960_720.jpg" alt="6" vspace="5" ng-click="ctrl.addCat('couple')">
+
+    <img class="img-thumbnail" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2cbL8cxkDR5q6bwRQ5ahyxLRU2hBwIgjGjf4uawwFFCyxf3U88g" alt="7" vspace="5" ng-click="ctrl.addCat('family')">
+
+    <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1UoT-yANwx9k7fPN73VajsZYbbfxLXfFL6t33cp5o7KaZtK9m" alt="8" vspace="5" ng-click="ctrl.addCat('history')">
+
+    <img class="img-thumbnail" src="http://static1.squarespace.com/static/56744689c647ad29367d624e/t/5697f71405caa7eb5b85475c/1450734853177/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" vspace="5" ng-click="ctrl.addCat('party')">
+
+    <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_(cropped).jpg" alt="10" vspace="5" ng-click="ctrl.addCat('food')">
     <br>
-    <img src="https://pixabay.com/static/uploads/photo/2015/08/31/19/24/couple-915983_960_720.jpg" alt="6" height="200" width="200" vspace="5" ng-click="ctrl.addCat('couple')">
 
-    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2cbL8cxkDR5q6bwRQ5ahyxLRU2hBwIgjGjf4uawwFFCyxf3U88g" alt="7" height="200" width="200" vspace="5" ng-click="ctrl.addCat('family')">
-
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1UoT-yANwx9k7fPN73VajsZYbbfxLXfFL6t33cp5o7KaZtK9m" alt="8" height="200" width="200" vspace="5" ng-click="ctrl.addCat('history')">
-
-    <img src="http://static1.squarespace.com/static/56744689c647ad29367d624e/t/5697f71405caa7eb5b85475c/1450734853177/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" height="200" width="200" vspace="5" ng-click="ctrl.addCat('party')">
-
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_(cropped).jpg" alt="10" height="200" width="200" vspace="5" ng-click="ctrl.addCat('food')">
-    <br>
-
-    <button ng-click="ctrl.holiday()">Submit</button><br>
-      <div>
-        <h4>{{ctrl.suggestion.location}}</h4><br>
-        <img src="{{ctrl.suggestion.imgurl}}"><br>
-        {{ctrl.suggestion.info}}
+    <button ng-click="ctrl.holiday()" class="btn btn-primary" id="suggestion-button">Submit</button><br>
+      <div class="row">
+        
+        <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
+        <div class="col-md-8">
+          <h4 style="text-align:left;">{{ctrl.suggestion.location}}</h4>
+          <p id="suggestion-text">{{ctrl.suggestion.info}}</p>
+        </div>
       </div>
-<br><br><br>
+  <br>
   </div>
-  If You have somewhere specific in mind or require more information about what is on offer in the area around your destination, please use the form below...
+  <div id="give-me-more">
+    <strong>If You have somewhere specific in mind or require more information about what is on offer in the area around your destination, please use the form below...</strong>
+  </div>
 </div>
 <hr>
 <div class="container-fluid text-center">
@@ -88,10 +92,11 @@
 
         <div class="row myform">
           <label for="find" class="col-sm-2">I want...</label>
-          <input class="col-sm-10" ng-change="controller.update()" type="text" ng-model="controller.term">
+          <input class="col-sm-4" ng-change="controller.update()" type="text" ng-model="controller.term">
+          <span class="col-sm-1"><input class="btn btn-primary" id="results-button" type="submit" ng-click="controller.buildQuery()" value="Search"></span>
+          <p class="col-sm-7"></p>
         </div>
 
-        <input class="btn btn-primary centered" type="submit" ng-click="controller.buildQuery()" value="Search">
       </form>
     </div>
 
