@@ -53,11 +53,13 @@
     <br>
 
     <button ng-click="ctrl.holiday()" class="btn btn-primary" id="suggestion-button">Submit</button><br>
-    <div class="row">
-      <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
-      <div class="col-md-8">
-        <h4 style="text-align:left;">{{ctrl.suggestion.location}}</h4>
-        <p id="suggestion-text">{{ctrl.suggestion.info}}</p>
+      <div class="row">
+
+        <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
+        <div class="col-md-8">
+          <h4 style="text-align:left;" id="location-suggestion">{{ctrl.suggestion.location}}</h4>
+          <p id="suggestion-text">{{ctrl.suggestion.info}}</p>
+        </div>
       </div>
     </div>
 
