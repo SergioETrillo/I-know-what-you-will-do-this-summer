@@ -2,19 +2,6 @@ summerApp.controller("holidaySuggestionController", ["summerService", function(s
 
   var self = this;
 
-  self.categories = [
-                    {id:"hot", name:"hot"},
-                    {id:"abroad", name:"abroad"},
-                    {id:"beach", name:"beach"},
-                    {id:"scenic", name:"scenic"},
-                    {id:"sport", name:"sport"},
-                    {id:"couple", name:"couple"},
-                    {id:"family", name:"family"},
-                    {id:"history", name:"history"},
-                    {id:"party", name:"party"},
-                    {id:"food", name:"food"}
-                    ];
-
   self.cats = []
 
   self.holiday = function(){

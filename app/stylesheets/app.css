@@ -1,4 +1,22 @@
 /* Remove the navbar's default rounded borders and increase the bottom margin */
+
+body {
+  background-color: #efefe8;
+}
+
+span.cat-img {
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+    width: 100px;
+    font-family: 'Chewy', cursive;
+}
+
+span.img-text {
+    display: block;
+}
+
+
 .navbar {
   margin-bottom: 50px;
   border-radius: 0;
@@ -58,9 +76,10 @@ footer {
   width: 100px;
   border-radius: 25px;
   margin-left: 5px; margin-right: 5px;
+  background-color: rgba(80, 181, 186, 0.22);
 }
 
-.img-thumbnail:active {
+.img-thumbnail:hover {
   background: rgba(42,32,157,.99);
 }
 
