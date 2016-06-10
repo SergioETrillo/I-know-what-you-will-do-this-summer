@@ -12,30 +12,30 @@
   <div ng-controller="holidaySuggestionController as ctrl">
     <label for="categories"> Categories: {{ctrl.cats}} </label><br>
 
-    <img class="img-thumbnail" src="https://pbs.twimg.com/profile_images/641353910561566720/VSxsyxs7.jpg" alt='1' vspace="5" ng-click="ctrl.addCat('hot')">
+    <img class="img-thumbnail" src="images/sunny.jpg" alt='1' ng-click="ctrl.addCat('hot')">
 
-    <img class="img-thumbnail" src="http://media1.santabanta.com/full1/Air%20Transport/Planes/planes-189a.jpg" alt="2" vspace="5" ng-click="ctrl.addCat('abroad')">
+    <img class="img-thumbnail" src="images/planes.jpg" alt="2" ng-click="ctrl.addCat('abroad')">
 
-    <img class="img-thumbnail" src="http://bboceansuites.com/wp-content/uploads/2015/05/sunset-beach-chairs-stock-footage.jpg" alt="3"  vspace="5" ng-click="ctrl.addCat('beach')">
+    <img class="img-thumbnail" src="images/sunset-beach-chairs-stock-footage.jpg" alt="3" ng-click="ctrl.addCat('beach')">
 
-    <img class="img-thumbnail" src="http://www.gannett-cdn.com/-mm-/e977604c48dc946642ef245e7fae010a4fc7beed/c=4-0-3595-2700&r=x513&c=680x510/local/-/media/2015/07/09/USATODAY/ExperienceAmerica/635720444062890848-Alabama---.jpg" alt="4" vspace="5" ng-click="ctrl.addCat('scenic')">
+    <img class="img-thumbnail" src="images/635720444062890848-Alabama---.jpg" alt="4" ng-click="ctrl.addCat('scenic')">
 
-    <img class="img-thumbnail" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcS-fvEcdR9TlQuW6z-UTdOQIdKDGmD55zFPeC7QfyROCmsFGyDx" alt="5" vspace="5" ng-click="ctrl.addCat('sport')">
+    <img class="img-thumbnail" src="images/pool.jpg" alt="5" ng-click="ctrl.addCat('sport')">
 
-    <img class="img-thumbnail" src="https://pixabay.com/static/uploads/photo/2015/08/31/19/24/couple-915983_960_720.jpg" alt="6" vspace="5" ng-click="ctrl.addCat('couple')">
+    <img class="img-thumbnail" src="images/couple-915983_960_720.jpg" alt="6" ng-click="ctrl.addCat('couple')">
 
-    <img class="img-thumbnail" src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT2cbL8cxkDR5q6bwRQ5ahyxLRU2hBwIgjGjf4uawwFFCyxf3U88g" alt="7" vspace="5" ng-click="ctrl.addCat('family')">
+    <img class="img-thumbnail" src="images/family.jpg" alt="7" ng-click="ctrl.addCat('family')">
 
-    <img class="img-thumbnail" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1UoT-yANwx9k7fPN73VajsZYbbfxLXfFL6t33cp5o7KaZtK9m" alt="8" vspace="5" ng-click="ctrl.addCat('history')">
+    <img class="img-thumbnail" src="images/clock.jpg" alt="8" vspace="5" ng-click="ctrl.addCat('history')">
 
-    <img class="img-thumbnail" src="http://static1.squarespace.com/static/56744689c647ad29367d624e/t/5697f71405caa7eb5b85475c/1450734853177/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" vspace="5" ng-click="ctrl.addCat('party')">
+    <img class="img-thumbnail" src="images/The+Maxim+Party+2016+Pavilion.jpg?format=2500w" alt="9" ng-click="ctrl.addCat('party')">
 
-    <img class="img-thumbnail" src="https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_(cropped).jpg" alt="10" vspace="5" ng-click="ctrl.addCat('food')">
+    <img class="img-thumbnail" src="images/Foods_(cropped).jpg" alt="10" vspace="5" ng-click="ctrl.addCat('food')">
     <br>
 
     <button ng-click="ctrl.holiday()" class="btn btn-primary" id="suggestion-button">Submit</button><br>
       <div class="row">
-        
+
         <div class="col-md-4"><img src="{{ctrl.suggestion.imgurl}}" id="suggestion-image"></div>
         <div class="col-md-8">
           <h4 style="text-align:left;">{{ctrl.suggestion.location}}</h4>
