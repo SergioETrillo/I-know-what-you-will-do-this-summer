@@ -32,6 +32,7 @@
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-protractor-runner": "^3.2.0",
-    "grunt-protractor-webdriver": "^0.2.5"
+    "grunt-protractor-webdriver": "^0.2.5",
+    "karma-firefox-launcher": "^1.0.0"
   }
 }
