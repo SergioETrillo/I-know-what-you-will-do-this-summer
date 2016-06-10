@@ -33,17 +33,18 @@ footer {
 
 .suggestions {
   float: left;
-  width: 25%;
-  height: 300px;
-  margin-right: 1em;
-  margin-bottom: 4em;
+  width: 300px;
+  min-height: 300px;
+  margin-left: 2em;
+  margin-bottom: 2em;
 }
 
 .after-box {
   clear: left;
 }
 
-.results {
-  display: flex;
-  margin-left: 20%;
+#filter {
+  margin-bottom: 20px;
+  width: 50%;
+  text-align: center;
 }
