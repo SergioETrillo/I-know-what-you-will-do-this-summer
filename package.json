@@ -9,8 +9,8 @@
     "install-bower-dependencies": "./node_modules/bower/bin/bower install",
     "test-features": "./node_modules/protractor/bin/protractor test/protractor.conf.js",
     "test-units": "./node_modules/karma-cli/bin/karma start test/karma.conf.js",
+    "test-single": "karma start test/karma.conf.js --single-run",
     "postinstall": "bower cache clean && bower install"
-
   },
   "author": "",
   "license": "MIT",
@@ -28,5 +28,10 @@
     "karma-cli": "^1.0.0",
     "karma-jasmine": "^1.0.2",
     "protractor": "^3.3.0"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-protractor-runner": "^3.2.0",
+    "grunt-protractor-webdriver": "^0.2.5"
   }
 }
