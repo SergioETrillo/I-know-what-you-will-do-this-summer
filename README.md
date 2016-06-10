@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tigretoncio/I-know-what-you-will-do-this-summer.svg?branch=master)](https://travis-ci.org/tigretoncio/I-know-what-you-will-do-this-summer)
 # I know what you will do this summer
 ##Project team:
 * [Omar Alvarez](https://github.com/omajul85)

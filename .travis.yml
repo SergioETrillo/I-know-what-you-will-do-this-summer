@@ -7,3 +7,4 @@ before_install:
 before_script:
   - npm install
   - bower install
+script:script: node_modules/karma/bin/karma start test/karma.conf.js --single-run
