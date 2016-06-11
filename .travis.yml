@@ -4,9 +4,8 @@ node_js:
 before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
-  - sleep 3
 install:
   - npm install
   - bower install
- script:
-   - npm run test-single
+script:
+  - npm run test-single
