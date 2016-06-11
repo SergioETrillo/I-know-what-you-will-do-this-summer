@@ -8,5 +8,5 @@ before_install:
 install:
   - npm install
   - bower install
-# script:
-#   - npm run test-single
+ script:
+   - npm run test-single
