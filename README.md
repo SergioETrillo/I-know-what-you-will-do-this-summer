@@ -46,6 +46,7 @@ The following technologies have been used:
 ## Pending items
 * Increase test coverage
 * Improve refactoring
+* Improve Continuous Integration
 
 ## General comment and reflection
 This project has been created as a result of the Makersthon exercise in week 9 of Makers Academy bootcamp program, (Apr-16 cohort).  The whole team generated ideas that were voted and Makers created selections of teams to work on different projects based on student's votes.  This was one of the projects chosen and we were assigned to it.
